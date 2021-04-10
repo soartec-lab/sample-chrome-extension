@@ -1,0 +1,25 @@
+{
+  "name": "sample app",
+  "version": "0.1",
+  "manifest_version": 2,
+  "description": "sample app",
+
+  "permissions": [
+    "storage",
+    "contextMenus",
+    "activeTab",
+    "tabs",
+    "notifications",
+    "http://*/",
+    "https://*/"
+  ],
+
+  "browser_action": {
+    "default_title": "sample app"
+  },
+
+  "background": {
+    "persistent": false,
+    "scripts": ["background.js"]
+  }
+}
