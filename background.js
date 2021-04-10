@@ -22,3 +22,20 @@ chrome.browserAction.onClicked.addListener(tab => {
 		});
 	});
 });
+
+// 右クリックのメニューからのアクション
+function createContextMenus() {
+	chrome.contextMenus.create({
+		id: "1",
+		title: "今日の天気"
+	});
+}
+
+chrome.runtime.onInstalled.addListener(createContextMenus);
+chrome.runtime.onStartup.addListener(createContextMenus);
+chrome.contextMenus.onClicked.addListener((info, tab) => {
+	chrome.tabs.executeScript(tab.id, {
+		frameId: info.frameId,
+		file: "search_weather.js"
+	});
+});
